@@ -67,6 +67,17 @@ class ClockTests extends TestCase
         $actual = $this->clock->$hours;
         $this->assertEquals($expected, $actual);
     }
+
+    // countBells test 4
+    // INPUT $startTime = '23:00'; $endTime = '1:00'; OUTPUT 24
+    public function testcountBells4()
+    {
+        $startTime = '23:00';
+        $endTime = '1:00';
+        $expected = 24;
+        $actual = $this->clock->countBells($startTime, $endTime);
+        $this->assertEquals($expected, $actual);
+    }
 }
 
 ?>
