@@ -37,6 +37,7 @@ class Clock
         $startTime = new DateTime($startTime);
         $endTime = new DateTime($endTime);
         $startMin = $startTime->format("i");
+        $startHour = intval($startTime->format("h"));
         $endHour = intval($endTime->format("h"));
 
         // Determine first bell toll within the defined limits
