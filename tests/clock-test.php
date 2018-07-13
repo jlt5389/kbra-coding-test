@@ -78,6 +78,28 @@ class ClockTests extends TestCase
         $actual = $this->clock->countBells($startTime, $endTime);
         $this->assertEquals($expected, $actual);
     }
+
+    // countBells test 5
+    public function testcountBells5()
+    {
+        $startTime = '21:59';
+        $endTime = '10:30';
+        $expected = 88;
+        $actual = $this->clock->countBells($startTime, $endTime);
+        $this->assertEquals($expected, $actual);
+    }
+
+    // countBells test 6
+    //  Test if both times are equal, treat it as if twenty-four hours will pass.
+    public function testcountBells6()
+    {
+        $startTime = '10:00';
+        $endTime = '10:00';
+        $expected = 166;
+        $actual = $this->clock->countBells($startTime, $endTime);
+        $this->assertEquals($expected, $actual);
+    }
+
 }
 
 ?>
