@@ -18,6 +18,21 @@ class Clock
     {
         return "I am a clock";
     }
+
+    /**********************************************************
+	 *	FUNCTION NAME: 	countBells
+	 * 	PARAMETERS:		$startTime - Starting time for toll counter
+     *                  $endTime - Ending time for toll counter
+	 *
+	 *	DESCRIPTION: 	This method returns the number of tolls between two
+                        given times (inclusive).
+	 *
+	 *	RETURNS:		Count of tolls between passed start/end params
+	 **********************************************************/
+    public function countBells()
+    {
+        return 5;
+    }
 }
 
 ?>

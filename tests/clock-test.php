@@ -26,6 +26,17 @@ class ClockTests extends TestCase
         $result = $this->clock->whatAmI();
         $this->assertEquals("I am a clock", $result);
     }
+
+    // countBells test 1
+    // INPUT $startTime = '2:00'; $endTime = '3:00'; OUTPUT 5
+    public function testcountBells1()
+    {
+        $startTime = '2:00';
+        $endTime = '3:00';
+        $expected = 5;
+        $actual = $this->clock->countBells($startTime, $endTime);
+        $this->assertEquals($expected, $actual);
+    }
 }
 
 ?>
