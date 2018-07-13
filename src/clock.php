@@ -37,8 +37,8 @@ class Clock
         $startTime = new DateTime($startTime);
         $endTime = new DateTime($endTime);
         $startMin = $startTime->format("i");
-        $startHour = intval($startTime->format("h"));
-        $endHour = intval($endTime->format("h"));
+        $startHour = intval($startTime->format("H"));
+        $endHour = intval($endTime->format("H"));
 
         // Determine first bell toll within the defined limits
         if ($startMin > 0)
@@ -49,17 +49,17 @@ class Clock
         // If endTime is the next day adjust for time discrepency
         if ($endTime <= $startTime)
         {
-            $endHour += $this->hours;
+            $endHour += $this->hours * 2;
         }
 
         // Create an array of times at which the bell tolls
         $tolls = range($startHour, $endHour);
         // For each toll add the tolls to the total count
         foreach ($tolls as $toll) {
-            if ($toll > $this->hours) {
-                $tollCount += $toll % $this->hours;
-            } else {
-                $tollCount += $toll;
+            $tollCount += $toll % $this->hours;
+            // If it is 12:00 add 12 tolls
+            if ($toll % $this->hours == 0) {
+                $tollCount += $this->hours;
             }
         }
         // Return a count of tolls (bells)
