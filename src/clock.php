@@ -43,15 +43,21 @@ class Clock
         // Determine first bell toll within the defined limits
         if ($startMin > 0)
         {
-            $startHour = 1 + intval($startTime->format("h"));
+            $startHour += 1;
+        }
+
+        // If endTime is the next day adjust for time discrepency
+        if ($endTime <= $startTime)
+        {
+            $endHour += $this->hours;
         }
 
         // Create an array of times at which the bell tolls
         $tolls = range($startHour, $endHour);
         // For each toll add the tolls to the total count
         foreach ($tolls as $toll) {
-            if ($toll > $hours) {
-                $tollCount += $toll - $hours;
+            if ($toll > $this->hours) {
+                $tollCount += $toll % $this->hours;
             } else {
                 $tollCount += $toll;
             }
