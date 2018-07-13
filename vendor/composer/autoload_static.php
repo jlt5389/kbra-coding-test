@@ -58,6 +58,7 @@ class ComposerStaticInit8069b4247164b6155bf22a63ca41c8eb
     );
 
     public static $classMap = array (
+        'Clock' => __DIR__ . '/../..' . '/src/clock.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/AssertionFailedError.php',
